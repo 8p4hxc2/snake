@@ -5,4 +5,9 @@ func _ready():
 	pass
 	
 func on_body_enter(body):
-	body.get_owner().eat();
+	if (body.get_name()=="head"):
+		body.get_owner().eat(get_pos());
+		moveFood();
+	
+func moveFood():
+	set_pos(Vector2(rand_range(50,500),rand_range(50,500)));
